@@ -2,7 +2,13 @@ import React from 'react';
 import classes from './App.module.css';
 import amazone from './amazone.png';
 import ProductData from './ProductData';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+
+
 function App() {
+  const currentHour = new Date().getHours() > 9 ? new Date().getHours() : '0' + new Date().getHours();
+  const currentMinutes = new Date().getMinutes() > 9 ? new Date().getMinutes() : '0' + new Date().getMinutes();
   return (
     <div className="App">
       <header className="App-header">
@@ -13,6 +19,10 @@ function App() {
       <div className={classes.MainContainer}>
         <div className={classes.ProductPreview}>
           <img src="https://imgur.com/iOeUBV7.png" alt='preview'></img>
+          {/*<div className={classes.TimeSection}> <p> {currentHour}:{currentMinutes} </p> </div>*/}
+          <div className={classes.HeartBeatSection}> 
+          <i class="fa-solid fa-heart-pulse"></i>
+          <p>78 </p> </div>
         </div>
 
         <div className={classes.ProductData}>
@@ -30,10 +40,11 @@ function App() {
           </div>
           <h3 className={classes.SectionHeading}> Features</h3>
           <div>
-            <button className={classes.FeatureItem}>Time</button>
+            <button className={[classes.FeatureItem, classes.SelectedFeatureItem].join(' ')}>Time</button>
             <button className={classes.FeatureItem}>Heart Rate</button>
-            <button>Time</button>
+            
           </div>
+          <button className={classes.PrimaryButton}>Buy Now</button>
         </div>
       </div>
     </div>
