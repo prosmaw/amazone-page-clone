@@ -9,11 +9,21 @@ const ProductPreview = (props) => {
 
 return (
     <div className={classes.ProductPreview}>
-    <img src="https://imgur.com/iOeUBV7.png" alt='preview'></img>
-    <div className={classes.TimeSection}> <p> {currentHour}:{currentMinutes} </p> </div>
-    {/*<div className={classes.HeartBeatSection}> 
-    <i class="fa-solid fa-heart-pulse"></i>
-    <p>78 </p> </div>*/}
+    <img src={props.currentPreviewImage} alt='preview'></img>
+
+    {
+        props.showHeartBeatSection ?
+        <div className={classes.HeartBeatSection}> 
+        <i class="fa-solid fa-heart-pulse"></i>
+        <p>78 </p> 
+        </div>
+        :
+        <div className={classes.TimeSection}> <p> {currentHour}:{currentMinutes} </p> 
+        </div>
+    }
+    
+
+    
 </div>
 );
 }
